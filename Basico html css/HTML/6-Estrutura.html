@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura</title>
+</head>
+<body>
+
+    <!--
+        TAGS DE ESTRUTURA (HTML semântico)
+
+        header  -> cabeçalho de uma página OU de uma seção
+        section -> agrupa um bloco de conteúdo relacionado
+        article -> um conteúdo independente dentro de uma section (ex: um produto, um post)
+        br      -> quebra de linha (pula uma linha, sem criar parágrafo novo)
+
+        Repara que "header" aparece duas vezes: uma pro site todo,
+        e outra só pra section de roupas masculinas.
+    -->
+
+    <header>
+        <h1>
+            <a href="#">Home</a>
+        </h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </header>
+
+    <br><br>
+
+    <!-- section: bloco "Roupas masculinas" -->
+    <section>
+        <header>
+            <h2>Roupas masculinas</h2>
+        </header>
+
+        <!-- article: cada peça de roupa é um conteúdo independente -->
+        <article>
+            <h3>Casaco</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </article>
+
+        <article>
+            <h3>Calça</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </article>
+    </section>
+
+</body>
+</html>

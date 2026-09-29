@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <!--
+        Essa meta tag é ESSENCIAL pra media query funcionar no celular.
+        Sem ela, o celular finge ter uma tela grande (~980px) e ignora os breakpoints.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query e Breakpoint</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!--
+        RESUMO
+
+        MEDIA QUERY
+        -> é uma regra do CSS que só vale se uma condição for verdadeira
+           (ex: largura da tela maior que 768px).
+        -> sintaxe:  @media (condição) { ...regras... }
+
+        BREAKPOINT
+        -> é o "ponto de quebra": a largura de tela onde o layout muda.
+        -> valores comuns (não são regra fixa, dependem do projeto):
+             ~480px   celular
+             ~768px   tablet
+             ~1024px  notebook
+             ~1200px  desktop grande
+
+        MOBILE FIRST  (mais recomendado)
+        -> escreve o CSS pro celular primeiro e usa min-width pra ir
+           melhorando conforme a tela aumenta.
+
+        DESKTOP FIRST
+        -> escreve o CSS pro desktop primeiro e usa max-width pra ir
+           adaptando conforme a tela diminui.
+
+        Detalhes e exemplos no arquivo css/style.css.
+        Teste: abra no navegador e vá diminuindo/aumentando a largura da janela.
+    -->
+</head>
+
+<body>
+
+    <header>
+        <h1>Media Query</h1>
+        <!-- esse texto muda conforme a largura da tela (ver CSS) -->
+        <p class="aviso"></p>
+    </header>
+
+    <!-- EXEMPLO 1: o layout muda de coluna (celular) pra linha (telas maiores) -->
+    <h2>Exemplo 1 - layout</h2>
+    <section class="cards">
+        <div class="card">1</div>
+        <div class="card">2</div>
+        <div class="card">3</div>
+    </section>
+
+    <!-- EXEMPLO 2: um elemento que some em telas pequenas -->
+    <h2>Exemplo 2 - esconder elemento</h2>
+    <p class="so-desktop">Esse parágrafo só aparece em telas de 768px ou mais.</p>
+
+    <!-- EXEMPLO 3: max-width (desktop first) -->
+    <h2>Exemplo 3 - max-width</h2>
+    <p class="max-exemplo">Esse texto fica vermelho apenas em telas de até 480px.</p>
+
+    <!-- EXEMPLO 4: media query de impressão -->
+    <h2>Exemplo 4 - impressão</h2>
+    <p class="so-tela">Esse texto some na hora de imprimir (teste com Ctrl + P).</p>
+
+</body>
+</html>

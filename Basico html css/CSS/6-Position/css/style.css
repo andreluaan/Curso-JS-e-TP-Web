@@ -1,0 +1,92 @@
+/* Estilo básico, só pra ver as caixas */
+.area {
+    border: 2px dashed gray;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.caixa {
+    width: 100px;
+    height: 60px;
+    color: white;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.outra {
+    background-color: gray;
+}
+
+/* STATIC: valor padrão, top/left não fazem nada aqui */
+.static {
+    position: static;
+    top: 30px;
+    left: 30px;
+    background-color: steelblue;
+}
+
+/* RELATIVE: desloca 30px pra baixo e 30px pra direita da posição original.
+   Repara que a caixa cinza "vizinha" não se mexe: o espaço original continua ocupado. */
+.relative {
+    position: relative;
+    top: 30px;
+    left: 30px;
+    background-color: seagreen;
+}
+
+/* ABSOLUTE só se posiciona em relação a um ancestral com position != static.
+   Por isso o pai precisa de position: relative. */
+.area-pai {
+    position: relative;
+    height: 120px;
+}
+
+/* Sai do fluxo: a vizinha sobe e ocupa o lugar dela.
+   right: 10px e bottom: 10px colam a caixa no canto inferior direito do pai. */
+.absolute {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background-color: darkorange;
+}
+
+/* Z-INDEX só funciona em elementos com position diferente de static.
+   Maior número = mais na frente. */
+.z-baixo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    background-color: crimson;
+}
+
+.z-alto {
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    z-index: 2;
+    background-color: royalblue;
+}
+
+/* STICKY: rola normalmente até chegar em top: 0, depois gruda no topo da tela */
+.sticky {
+    position: sticky;
+    top: 0;
+    background-color: gold;
+    padding: 10px;
+}
+
+/* só pra ter altura e dar pra rolar a página */
+.rolagem {
+    height: 1200px;
+}
+
+/* FIXED: preso na tela, no canto inferior direito, sempre visível */
+.fixed {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 15px;
+    background-color: black;
+    color: white;
+}

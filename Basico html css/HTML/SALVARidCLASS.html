@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula 3 — ID e Class</title>
+<style>
+  :root{
+    --bg: #101314;
+    --panel: #171b1d;
+    --ink: #e9ecec;
+    --muted: #93a1a1;
+    --rule: #2a3033;
+    --id-color: #7fd1ae;
+    --class-color: #e8b16b;
+    --code-bg: #0c0f10;
+    --code-ink: #d9e0e0;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    line-height: 1.6;
+  }
+
+  .wrap{
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 24px 100px;
+  }
+
+  header.lesson{
+    margin-bottom: 56px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 28px;
+  }
+
+  .kicker{
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+
+  h1{
+    font-size: 40px;
+    margin: 10px 0 0;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  h1 .id-mark{ color: var(--id-color); }
+  h1 .class-mark{ color: var(--class-color); }
+
+  h2{
+    font-size: 22px;
+    font-weight: 600;
+    margin: 48px 0 14px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .tag-dot{
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    flex: none;
+  }
+
+  .tag-dot.id{ background: var(--id-color); }
+  .tag-dot.class{ background: var(--class-color); }
+
+  p{ color: var(--ink); max-width: 62ch; }
+  p.muted{ color: var(--muted); font-size: 15px; }
+
+  code.inline{
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    background: var(--code-bg);
+    color: var(--code-ink);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+
+  pre{
+    background: var(--code-bg);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 18px 20px;
+    overflow-x: auto;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 14px;
+    color: var(--code-ink);
+    line-height: 1.55;
+  }
+
+  pre .cm{ color: var(--muted); }
+  pre .attr-id{ color: var(--id-color); }
+  pre .attr-class{ color: var(--class-color); }
+  pre .str{ color: #8fb6d9; }
+
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    font-size: 15px;
+  }
+
+  th, td{
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  th{
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  td.id-col{ color: var(--id-color); }
+  td.class-col{ color: var(--class-color); }
+
+  ul.practices{
+    padding-left: 20px;
+    max-width: 62ch;
+  }
+  ul.practices li{ margin-bottom: 8px; }
+
+  .notes{
+    margin-top: 56px;
+    padding: 20px 22px;
+    border: 1px dashed var(--rule);
+    border-radius: 8px;
+    color: var(--muted);
+    font-size: 14px;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      --bg: #faf8f4;
+      --panel: #ffffff;
+      --ink: #201c16;
+      --muted: #6f6a60;
+      --rule: #e2dcd0;
+      --code-bg: #f1ede3;
+      --code-ink: #2a251d;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="lesson">
+      <div class="kicker">Seção · HTML e CSS — Aula 3</div>
+      <h1><span class="id-mark">ID</span> &amp; <span class="class-mark">Class</span></h1>
+      <p class="muted">Os dois atributos que dão nome e agrupam elementos no HTML — a base de todo seletor CSS e de toda manipulação via JavaScript.</p>
+    </header>
+
+    <section>
+      <h2><span class="tag-dot id"></span> Atributo <code class="inline">id</code></h2>
+      <p>Identifica <strong>um único elemento</strong> na página. Um mesmo <code class="inline">id</code> não deve se repetir em outro elemento do mesmo documento.</p>
+      <pre><span class="cm">&lt;!-- HTML --&gt;</span>
+&lt;div <span class="attr-id">id</span>=<span class="str">"cabecalho"</span>&gt;Meu Cabeçalho&lt;/div&gt;</pre>
+      <pre><span class="cm">/* CSS — selecionado com # */</span>
+<span class="attr-id">#cabecalho</span> {
+  background-color: navy;
+  color: white;
+}</pre>
+      <p class="muted">Em JavaScript: <code class="inline">document.getElementById("cabecalho")</code></p>
+    </section>
+
+    <section>
+      <h2><span class="tag-dot class"></span> Atributo <code class="inline">class</code></h2>
+      <p>Identifica um <strong>grupo</strong> de elementos. Pode ser reutilizada quantas vezes for preciso, e um elemento pode ter <strong>várias classes</strong> separadas por espaço.</p>
+      <pre><span class="cm">&lt;!-- HTML --&gt;</span>
+&lt;p <span class="attr-class">class</span>=<span class="str">"destaque"</span>&gt;Texto importante&lt;/p&gt;
+&lt;p <span class="attr-class">class</span>=<span class="str">"destaque aviso"</span>&gt;Importante e de aviso&lt;/p&gt;</pre>
+      <pre><span class="cm">/* CSS — selecionado com . */</span>
+<span class="attr-class">.destaque</span> { font-weight: bold; }
+<span class="attr-class">.aviso</span>     { color: red; }</pre>
+      <p class="muted">Em JavaScript: <code class="inline">document.querySelectorAll(".destaque")</code></p>
+    </section>
+
+    <section>
+      <h2>Diferenças</h2>
+      <table>
+        <tr>
+          <th>Característica</th>
+          <th class="id-col">id</th>
+          <th class="class-col">class</th>
+        </tr>
+        <tr>
+          <td>Unicidade</td>
+          <td class="id-col">Único por página</td>
+          <td class="class-col">Pode repetir</td>
+        </tr>
+        <tr>
+          <td>Seletor CSS</td>
+          <td class="id-col"><code class="inline">#nome</code></td>
+          <td class="class-col"><code class="inline">.nome</code></td>
+        </tr>
+        <tr>
+          <td>Especificidade</td>
+          <td class="id-col">Mais alta</td>
+          <td class="class-col">Mais baixa</td>
+        </tr>
+        <tr>
+          <td>Por elemento</td>
+          <td class="id-col">Apenas um</td>
+          <td class="class-col">Vários, ao mesmo tempo</td>
+        </tr>
+        <tr>
+          <td>Uso típico</td>
+          <td class="id-col">Header, footer, âncoras</td>
+          <td class="class-col">Botões, cards, estilos reutilizáveis</td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Boas práticas</h2>
+      <ul class="practices">
+        <li>Use <code class="inline">id</code> para elementos estruturais e únicos da página.</li>
+        <li>Use <code class="inline">class</code> para estilos que se repetem — é a escolha padrão para a maioria dos casos.</li>
+        <li>Evite estilizar por <code class="inline">id</code>: a especificidade alta dificulta sobrescrever o estilo depois.</li>
+        <li>Nomeie em <code class="inline">kebab-case</code>, de forma descritiva: <code class="inline">menu-lateral</code>, não <code class="inline">div1</code>.</li>
+      </ul>
+    </section>
+
+    <div class="notes">// espaço para anotações adicionais</div>
+
+  </div>
+</body>
+</html>

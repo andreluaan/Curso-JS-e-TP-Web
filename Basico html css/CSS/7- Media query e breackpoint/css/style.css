@@ -1,0 +1,138 @@
+/*
+    MOBILE FIRST
+
+    O CSS fora de qualquer @media é o estilo BASE, vale pra todas as telas
+    (começando pelo celular). Depois, com min-width, a gente vai
+    "sobrescrevendo" só o que muda em telas maiores.
+*/
+
+body {
+    font-family: sans-serif;
+    padding: 16px;
+}
+
+/* ---------- aviso que muda conforme o breakpoint ---------- */
+
+/* base (celular, menos de 768px) */
+.aviso::before {
+    content: "Você está em: CELULAR (menos de 768px)";
+}
+
+/* ---------- Exemplo 1: layout ---------- */
+
+/* base: cards um embaixo do outro (coluna) */
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card {
+    background-color: steelblue;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+/* ---------- Exemplo 2: esconder elemento ---------- */
+
+/* base: escondido no celular */
+.so-desktop {
+    display: none;
+}
+
+/* ---------- Exemplo 3: max-width ---------- */
+
+.max-exemplo {
+    color: black;
+}
+
+/* ---------- Exemplo 4: impressão ---------- */
+
+.so-tela {
+    color: seagreen;
+}
+
+
+/*
+    BREAKPOINT 1: TABLET  (a partir de 768px)
+
+    @media (min-width: 768px)
+    -> "se a largura da tela for 768px OU MAIS, aplique o que está aqui dentro"
+*/
+@media (min-width: 768px) {
+
+    .aviso::before {
+        content: "Você está em: TABLET (768px ou mais)";
+    }
+
+    /* cards passam a ficar lado a lado (linha) */
+    .cards {
+        flex-direction: row;
+    }
+
+    .card {
+        flex: 1; /* cada card divide o espaço igualmente */
+        background-color: seagreen;
+    }
+
+    /* o parágrafo escondido passa a aparecer */
+    .so-desktop {
+        display: block;
+    }
+}
+
+
+/*
+    BREAKPOINT 2: DESKTOP  (a partir de 1024px)
+
+    Repara que o de 768px continua valendo aqui também:
+    as regras vão se ACUMULANDO, e só sobrescrevemos o que muda.
+*/
+@media (min-width: 1024px) {
+
+    .aviso::before {
+        content: "Você está em: DESKTOP (1024px ou mais)";
+    }
+
+    .card {
+        background-color: darkorange;
+        padding: 60px;
+    }
+}
+
+
+/*
+    max-width -> "se a largura da tela for 480px OU MENOS"
+    É o oposto do min-width. Usado no estilo DESKTOP FIRST.
+*/
+@media (max-width: 480px) {
+
+    .max-exemplo {
+        color: red;
+    }
+}
+
+
+/*
+    Dá pra combinar condições com "and":
+    aqui vale só ENTRE 768px e 1023px (faixa exclusiva do tablet)
+*/
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    body {
+        background-color: #f0f0f0;
+    }
+}
+
+
+/*
+    O media query não serve só pra largura. Aqui, "print"
+    é o tipo de mídia: vale apenas na hora de imprimir a página.
+*/
+@media print {
+
+    .so-tela {
+        display: none;
+    }
+}

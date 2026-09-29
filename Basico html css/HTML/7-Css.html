@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pensando com Html e Css</title>
+</head>
+<body>
+
+    <!--
+        DIV + STYLE INLINE
+
+        div   -> uma "caixa" genérica, sem significado próprio, usada pra
+                 organizar e estilizar pedaços da página.
+
+        style -> atributo que aplica CSS direto na tag (chamado de "inline").
+                 width / height  -> tamanho da caixa
+                 background-color -> cor de fundo
+                 float: left     -> tira a div do fluxo normal e "flutua"
+                                     ela pra esquerda, deixando a próxima
+                                     div se posicionar do lado dela
+    -->
+
+    <div style="width: 60px; height: 60px;
+    background-color: yellow; float: left;"
+    ></div>
+    <div style="width: 60px; height: 60px;
+    background-color: red; float: left;"
+    ></div>
+    <div style="width: 60px; height: 60px;
+    background-color: green; float: left;"
+    ></div>
+
+    <!-- margin-left: espaço vazio à esquerda da caixa -->
+    <div style="width: 60px; height: 60px;
+    background-color: blue; float: left; margin-left: 10px;"
+    ></div>
+
+    <!-- border-radius: arredonda as bordas da caixa (aqui, vira um círculo) -->
+    <div style="width: 60px; height: 60px;
+    background-color: purple; float: left; margin-left: 10px;
+    border-radius: 50%;"
+    ></div>
+
+</body>
+</html>

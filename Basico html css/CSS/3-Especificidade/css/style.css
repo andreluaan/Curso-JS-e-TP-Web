@@ -1,0 +1,36 @@
+/*
+    Cálculo da especificidade de cada seletor abaixo
+    (ID, CLASSE/ATRIBUTO/PSEUDO-CLASSE, ELEMENTO/PSEUDO-ELEMENTO)
+
+    body#b p#p.p
+    -> 2 ids (#b e #p), 1 classe (.p), 2 elementos (body e p)
+       ID: 2   CLASSE: 1   ELEMENTO: 2
+
+    #p
+    -> 1 id, 0 classes, 0 elementos
+       ID: 1   CLASSE: 0   ELEMENTO: 0
+
+    #p.p
+    -> 1 id, 1 classe, 0 elementos
+       ID: 1   CLASSE: 1   ELEMENTO: 0
+
+    Comparando as 3 regras: todas têm 1 ou 2 no "ID", então essa
+    categoria decide: "body#b p#p.p" tem 2 ids contra 1 dos outros,
+    então ELE venceria... só que tem !important no meio, então a
+    conta muda (ver explicação abaixo de cada regra).
+*/
+
+body#b p#p.p {
+    background-color: purple !important;
+    /* !important força essa regra a vencer, mesmo sem ser a mais específica das três */
+}
+
+#p {
+    background-color: red !important;
+    /* também tem !important -> quando duas regras usam !important, aí sim volta a valer a especificidade normal entre elas */
+}
+
+#p.p {
+    background-color: yellow;
+    /* sem !important -> perde pras duas de cima, não importa a ordem */
+}

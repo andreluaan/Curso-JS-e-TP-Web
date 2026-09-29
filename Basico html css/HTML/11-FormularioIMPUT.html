@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+
+        label {
+            cursor: pointer; /* mostra a "mãozinha" ao passar o mouse no label */
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <!--
+        FORM
+
+        action     -> pra onde os dados são enviados (aqui "#" é só placeholder)
+        method     -> como enviar: "get" (vai na URL) ou "post" (vai escondido no corpo da requisição)
+        target="_blank" -> abre o resultado do envio em nova aba
+        autocomplete="off" -> desliga o autopreenchimento do navegador
+    -->
+    <form action="#" method="get"
+    target="_blank" autocomplete="off">
+        <section>
+            <h1>Cabeçalho</h1>
+            <p>O Formularios</p>
+
+            <!--
+                fieldset -> agrupa campos relacionados, desenhando uma borda ao redor
+                legend   -> o título desse grupo
+            -->
+            <fieldset>
+                <legend>Dados pessoais</legend>
+
+                <p>
+                    <!--
+                        required -> obrigatório preencher antes de enviar
+                        value    -> valor que já vem preenchido
+                    -->
+                    <input type="text" id="nome" name="nome"
+                     placeholder="Seu nome" value="André" required>
+                </p>
+            </fieldset>
+
+
+            <fieldset>
+                <!-- disabled -> campo desativado, não dá pra clicar nem editar, e não é enviado no form -->
+                <legend>Campo desativado</legend>
+
+                <p>
+                    <input type="text" id="nome-desativado" name="nome-desativado"
+                     placeholder="Seu nome" disabled>
+                </p>
+            </fieldset>
+
+
+            <p>
+                <!-- readonly -> dá pra ver e selecionar o texto, mas não dá pra editar -->
+                <label for="nome-leitura">Nome:</label>
+                <input type="text" id="nome-leitura" name="nome-leitura"
+                    placeholder="Seu nome" readonly>
+            </p>
+
+            <!--
+                label + for="id"
+                -> clicando no texto do label, o campo com esse id também é selecionado/marcado.
+                   por isso cada input precisa de um id ÚNICO (lembra da aula de id/class?)
+            -->
+            <p>
+                <label for="dev">Sou um dev:</label>
+                <input type="checkbox" id="dev" value="sim" checked><br>
+                <label for="dev2">Sou um dev 2:</label>
+                <input type="checkbox" id="dev2" value="sim"><br>
+                <label for="dev3">Sou um dev 3:</label>
+                <input type="checkbox" id="dev3" value="sim">
+            </p>
+
+            <!-- diferentes tipos de input, cada um já vem com validação/visual próprio do navegador -->
+
+            <p>
+                <label for="date">Data:</label>
+                <input type="date" id="date" name="date" value="2002-04-20">
+            </p>
+
+            <p>
+                <label for="datetime">Data e hora:</label>
+                <input type="datetime-local" id="datetime" name="datetime" value="2002-04-20T10:00">
+            </p>
+
+            <p>
+                <label for="time">Hora:</label>
+                <input type="time" id="time" name="time" value="10:00">
+            </p>
+
+            <p>
+                <label for="color">Cor:</label>
+                <input type="color" id="color" name="color" value="#ffffff">
+            </p>
+
+            <p>
+                <label for="email">E-mail:</label>
+                <!-- type="email" valida automaticamente se tem "@" e formato de e-mail -->
+                <input type="email" id="email" name="email" placeholder="seuemail@gmail.com">
+            </p>
+
+            <p>
+                <label for="file">Arquivo:</label>
+                <!-- accept: filtra os tipos de arquivo aceitos | multiple: permite escolher vários -->
+                <input type="file" id="file" name="file" accept=".png,.svg" multiple>
+            </p>
+
+            <p>
+                <label for="number">Número:</label>
+                <input type="number" id="number" name="number">
+            </p>
+
+            <p>
+                <label for="textarea">Mensagem:</label>
+                <!-- textarea: campo de texto com várias linhas. rows define a altura inicial -->
+                <textarea name="textarea" id="textarea" rows="2"></textarea>
+            </p>
+
+            <p>
+                <!-- type="submit" -> envia o formulário | type="reset" -> limpa os campos -->
+                <button type="submit">Enviar</button>
+                <button type="reset">Reset</button>
+            </p>
+
+        </section>
+    </form>
+
+</body>
+</html>

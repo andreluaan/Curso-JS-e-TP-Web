@@ -1,0 +1,54 @@
+.box2 {
+    background-color: aqua;
+    height: 150px;
+    width: 150px;
+} 
+
+
+.heading {
+    transition: all 300ms ease-in-out;
+}
+
+.heading:hover {
+    background-color: rgba(7, 30, 41, 0.651);
+}
+
+a {
+    color: darkorange;
+}
+
+a:link{
+    color: pink;
+}
+
+a:visited {
+    color: deepskyblue;
+}
+
+a:active {
+    color: #000;
+}
+
+
+/* nth */
+
+ul li:nth-child(odd) {
+    background-color: aqua;
+}
+
+ul li:nth-child(even) {
+    background-color: brown ;
+}
+
+/* not */
+
+div p:not(.cinco) {
+    background-color: bisque ;
+}
+
+
+
+ul li::after {
+
+    content: ' - ';
+}

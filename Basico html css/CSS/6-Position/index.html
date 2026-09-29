@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!--
+        POSITION
+
+        A propriedade position define COMO um elemento é posicionado na página.
+        Os valores são:
+
+        static   -> padrão de todo elemento. Segue o fluxo normal da página.
+                    top / left / right / bottom não fazem efeito.
+        relative -> continua no fluxo normal, mas dá pra "empurrar" a caixa
+                    a partir da posição original usando top / left / right / bottom.
+                    O espaço original continua reservado.
+        absolute -> sai do fluxo normal. É posicionado em relação ao ancestral
+                    mais próximo que tenha position diferente de static
+                    (se não tiver nenhum, usa a página inteira).
+        fixed    -> sai do fluxo e fica preso na TELA. Não se mexe ao rolar a página.
+        sticky   -> mistura de relative com fixed: rola normal até chegar numa
+                    posição, e aí "gruda" na tela.
+
+        Detalhes no arquivo css/style.css.
+    -->
+</head>
+
+<body>
+
+    <!-- STATIC: nada de especial, segue o fluxo -->
+    <h2>1. static</h2>
+    <div class="area">
+        <div class="caixa static">static</div>
+        <div class="caixa outra">vizinha</div>
+    </div>
+
+    <!-- RELATIVE: repara que a vizinha NÃO ocupa o espaço vazio que sobrou -->
+    <h2>2. relative</h2>
+    <div class="area">
+        <div class="caixa relative">relative</div>
+        <div class="caixa outra">vizinha</div>
+    </div>
+
+    <!-- ABSOLUTE: o pai (.area-pai) tem position: relative, então a caixa se posiciona dentro dele -->
+    <h2>3. absolute</h2>
+    <div class="area area-pai">
+        <div class="caixa absolute">absolute</div>
+        <div class="caixa outra">vizinha</div>
+    </div>
+
+    <!-- Z-INDEX: quando duas caixas se sobrepõem, o maior z-index fica por cima -->
+    <h2>4. z-index</h2>
+    <div class="area area-pai">
+        <div class="caixa z-baixo">z-index: 1</div>
+        <div class="caixa z-alto">z-index: 2</div>
+    </div>
+
+    <!-- STICKY: role a página pra ver esse título grudar no topo -->
+    <h2 class="sticky">5. sticky (rola e gruda no topo)</h2>
+
+    <div class="rolagem">
+        <p>Continue rolando a página...</p>
+    </div>
+
+    <!-- FIXED: fica sempre no canto da tela, mesmo rolando -->
+    <div class="fixed">fixed</div>
+
+</body>
+</html>

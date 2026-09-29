@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especificidade</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!--
+        ESPECIFICIDADE CSS
+
+        Quando duas regras de CSS "brigam" pelo mesmo elemento,
+        quem ganha não é a que vem por último — é a mais ESPECÍFICA.
+
+        Cada seletor ganha "pontos" em 3 categorias:
+
+        (inline)   ID        CLASSE / ATRIBUTO / PSEUDO-CLASSE     ELEMENTO / PSEUDO-ELEMENTO
+                   #id       .classe  [atributo]  :hover            div  p  ::before
+
+        Compara categoria por categoria, da esquerda pra direita.
+        Quem tiver mais pontos na categoria mais à esquerda, vence
+        -- não importa quantos pontos o outro tem nas categorias
+        seguintes.
+
+        !important -> ignora toda essa conta e vence de qualquer jeito
+        (por isso é usado com moderação, é tipo uma "trapaça" no sistema)
+    -->
+</head>
+
+
+<body id="b" class="bclass">
+
+    <p id="p" class="p" style="background-color: bisque;">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Ullam modi magnam minus animi numquam id magni delectus
+        maxime sequi a cum tenetur nemo soluta adipisci,
+        recusandae possimus repellat deleniti quasi!</p>
+
+</body>
+</html>

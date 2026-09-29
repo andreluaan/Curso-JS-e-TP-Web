@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+    <style>
+
+        /*
+            TABELAS
+
+            table  -> a tabela inteira
+            caption -> título/legenda da tabela
+            thead  -> cabeçalho da tabela (linha com os nomes das colunas)
+            tbody  -> corpo da tabela (os dados em si)
+            tfoot  -> rodapé da tabela (ex: totais, resumo)
+            tr     -> uma linha (table row)
+            td     -> uma célula de dado (table data)
+            th     -> uma célula de cabeçalho (table header)
+
+            colspan -> faz uma célula "ocupar" o espaço de várias colunas
+        */
+
+        table {
+            width: 100%;
+            border-collapse: collapse; /* junta as bordas das células, sem espaço duplo entre elas */
+        }
+
+        caption {
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        thead {
+            background-color: #222;
+            color: white;
+        }
+
+        tfoot {
+            background-color: #eee;
+            font-weight: bold;
+        }
+
+        /*
+            RESPONSIVE TABLE
+
+            Tabela não "quebra linha" sozinha. Se a tela for pequena
+            (ex: celular) e a tabela for larga, ela estoura a tela.
+
+            Solução: colocar a tabela dentro de uma div com
+            overflow-x: auto. Isso cria uma barra de rolagem
+            horizontal SÓ dentro dessa div, quando necessário,
+            sem quebrar o layout do resto da página.
+        */
+        .tabela-responsiva {
+            overflow-x: auto;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="tabela-responsiva">
+        <table>
+            <caption>Pedidos do mês</caption>
+
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Preço unitário</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Camiseta</td>
+                    <td>2</td>
+                    <td>R$ 49,90</td>
+                </tr>
+                <tr>
+                    <td>Calça</td>
+                    <td>1</td>
+                    <td>R$ 129,90</td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <!-- colspan="2" faz essa célula ocupar o lugar de 2 colunas -->
+                    <td colspan="2">Total</td>
+                    <td>R$ 229,70</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+</body>
+</html>

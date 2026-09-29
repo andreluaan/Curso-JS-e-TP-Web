@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>box model</title>
+    <style>
+
+        /*
+            BOX MODEL
+
+            Todo elemento no HTML é uma "caixa" formada por 4 camadas,
+            de dentro pra fora:
+
+            content -> o conteúdo em si (texto, imagem...)
+            padding -> espaço interno, entre o conteúdo e a borda
+            border  -> a borda da caixa
+            margin  -> espaço externo, entre essa caixa e as outras ao redor
+
+            box-sizing: content-box (padrão do navegador)
+            -> width/height definem só o CONTEÚDO.
+               padding e border são somados por fora, aumentando o
+               tamanho final da caixa.
+
+            box-sizing: border-box (o mais usado na prática)
+            -> width/height já incluem padding e border.
+               fica mais fácil de prever o tamanho real da caixa.
+        */
+
+        .section-one,
+        .section-two {
+            box-sizing: content-box;
+        }
+
+        .section-one {
+            width: 200px;
+            height: 160px;
+            background-color: deeppink;
+            border: 5px solid black;
+            padding: 15px;
+            margin: 20px;
+        }
+
+        .section-two {
+            width: 200px;
+            height: 160px;
+            background-color: aqua;
+            padding: 15px;
+            margin: 20px;
+        }
+
+        /* mesma caixa que section-one, mas com border-box, pra comparar */
+        .section-three {
+            box-sizing: border-box;
+            width: 200px;
+            height: 160px;
+            background-color: yellowgreen;
+            border: 5px solid black;
+            padding: 15px;
+            margin: 20px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <section class="section-one">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+        Eum sed voluptatem officiis, itaque expedita laudantium, voluptate rem dolores eius,
+        cupiditate ex consequuntur accusamus? Odio voluptatem iusto rerum officiis
+         doloribus impedit!
+    </section>
+    <section class="section-two">2</section>
+    <section class="section-three">3 - essa aqui usa border-box, repara que fica "menor" mesmo com o mesmo width</section>
+
+</body>
+</html>
