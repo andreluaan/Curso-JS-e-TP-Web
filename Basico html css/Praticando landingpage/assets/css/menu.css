@@ -1,0 +1,109 @@
+.menu {
+    background: var(--white-color);
+    position: sticky; /* substitui o fixed + menu-spacing */
+    top: 0;
+    z-index: 10;
+    border-bottom: 0.1rem solid var(--light-gray-color);
+}
+
+.menu-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.menu h1 {
+    font-size: 2.3rem;
+    color: var(--primary-color);
+}
+
+.menu h1 a { color: inherit; }
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.menu ul li a {
+    display: block;
+    padding: 1.8rem;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    position: relative;
+}
+
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    width: 0;
+    height: 0.2rem;
+    background: var(--secondary-color);
+    transition: all 300ms ease-in-out;
+}
+
+.menu ul li a:hover::after,
+.menu ul li a:focus-visible::after {
+    width: 50%;
+    left: 25%;
+}
+
+/* botão hambúrguer: escondido no desktop */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.6rem;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 2.2rem;
+    height: 0.25rem;
+    background: var(--primary-color);
+    margin: 0.4rem 0;
+    transition: all 300ms ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .menu .menu-content {
+        flex-wrap: wrap;
+        padding-block: 1.8rem;
+    }
+
+    .menu h1 { font-size: 2rem; }
+
+    .menu-toggle { display: block; }
+
+    /* menu fechado por padrão no celular */
+    .menu nav {
+        display: none;
+        width: 100%;
+    }
+
+    .menu.menu-open nav { display: block; }
+
+    .menu ul {
+        flex-direction: column;
+        padding-top: 0.4rem;
+    }
+
+    .menu ul li a {
+        padding: 1rem 0;
+        font-size: 1.5rem;
+        border-top: 0.1rem solid var(--light-gray-color);
+    }
+
+    .menu ul li a::after { display: none; }
+
+    /* hambúrguer vira X quando aberto */
+    .menu.menu-open .menu-toggle span:nth-child(1) { transform: translateY(0.65rem) rotate(45deg); }
+    .menu.menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
+    .menu.menu-open .menu-toggle span:nth-child(3) { transform: translateY(-0.65rem) rotate(-45deg); }
+}

@@ -1,0 +1,14 @@
+:root {
+    --primary-color: #0a1128;
+    --secondary-color: #682e9b;
+    --white-color: #fff;
+    --light-gray-color: #e2d9e6;
+    --gap: 3rem;
+    --menu-offset: 7rem; /* espaço para o menu fixo ao clicar nos links */
+}
+
+@media (max-width: 768px) {
+    :root {
+        --gap: 2rem;
+    }
+}
